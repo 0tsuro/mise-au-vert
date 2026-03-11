@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\PensionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,3 +20,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/', [PublicController::class, 'home']);
+Route::get('/pensions', [PensionController::class, 'index']);
+Route::get('/pensions/{id}', [PensionController::class, 'show']);
