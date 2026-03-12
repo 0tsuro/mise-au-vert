@@ -6,6 +6,7 @@ use App\Models\Pension;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Proprietaire;
 
 class User extends Authenticatable
 {
@@ -49,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Pension::class, 'user_id', 'id');
     }
+
+    public function proprietaire()
+{
+    return $this->hasOne(Proprietaire::class, 'user_id', 'id');
+}
 }

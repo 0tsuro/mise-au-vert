@@ -27,7 +27,7 @@
 
         <div class="hidden md:flex items-center gap-3">
             @auth
-                <a href="{{ route('admin.dashboard') }}"
+                <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('client.dashboard') }}"
                    class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-[#4F6F52]/20 text-ink text-[0.78rem] tracking-wide hover:border-[#4F6F52]/40 transition-colors duration-300">
                     Dashboard
                 </a>
@@ -68,7 +68,10 @@
 
             <div class="pt-4 border-t border-black/5 flex flex-col gap-3">
                 @auth
-                    <a href="{{ route('admin.dashboard') }}" class="text-sm text-ink/80">Dashboard</a>
+                    <a href="{{ auth()->user()->role === 'admin' ? route('admin.dashboard') : route('client.dashboard') }}"
+   class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full border border-[#4F6F52]/20 text-ink text-[0.78rem] tracking-wide hover:border-[#4F6F52]/40 transition-colors duration-300">
+    Dashboard
+</a>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
