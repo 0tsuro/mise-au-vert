@@ -8,11 +8,11 @@ class Box extends Model
 {
     protected $table = 'boxes';
 
-    protected $fillable = [
-        'superficie',
-        'pension_id',
-        'type_gardiennage_id',
-    ];
+protected $fillable = [
+    'pension_id',
+    'superficie',
+    'type_gardiennage_id'
+];
 
     public function pension()
     {
