@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\PensionController as AdminPensionController;
 use App\Http\Controllers\Admin\TarificationController as AdminTarificationController;
 use App\Http\Controllers\Admin\BoxController;
 use App\Http\Controllers\Client\AnimalController as ClientAnimalController;
+use App\Http\Controllers\Client\AffectationController;
+use App\Http\Controllers\Admin\AffectationController as AdminAffectationController;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/services', [PublicController::class, 'services'])->name('services');
@@ -29,13 +31,20 @@ Route::middleware(['auth', 'client'])->prefix('client')->group(function () {
         return view('client.dashboard');
     })->name('client.dashboard');
 
+    Route::get('/profil', [ClientAnimalController::class, 'profil'])->name('client.profil');
+    Route::post('/profil', [ClientAnimalController::class, 'profilUpdate'])->name('client.profil.update');
+
     Route::get('/animaux', [ClientAnimalController::class, 'index'])->name('client.animaux.index');
     Route::get('/animaux/create', [ClientAnimalController::class, 'create'])->name('client.animaux.create');
     Route::post('/animaux', [ClientAnimalController::class, 'store'])->name('client.animaux.store');
-
     Route::get('/animaux/{animal}/edit', [ClientAnimalController::class, 'edit'])->name('client.animaux.edit');
     Route::put('/animaux/{animal}', [ClientAnimalController::class, 'update'])->name('client.animaux.update');
     Route::delete('/animaux/{animal}', [ClientAnimalController::class, 'destroy'])->name('client.animaux.destroy');
+
+    Route::get('/reservations/create', [AffectationController::class, 'create'])->name('client.reservations.create');
+    Route::post('/reservations', [AffectationController::class, 'store'])->name('client.reservations.store');
+    Route::get('/reservations', [AffectationController::class, 'index'])->name('client.reservations.index');
+    Route::delete('/reservations/{affectation}', [AffectationController::class, 'destroy'])->name('client.reservations.destroy');
 });
 
 Route::middleware('auth')->group(function () {
@@ -59,6 +68,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/boxes/{box}/edit', [BoxController::class, 'edit'])->name('admin.boxes.edit');
     Route::put('/boxes/{box}', [BoxController::class, 'update'])->name('admin.boxes.update');
     Route::delete('/boxes/{box}', [BoxController::class, 'destroy'])->name('admin.boxes.destroy');
+
+    Route::get('/reservations', [AdminAffectationController::class, 'index'])->name('admin.reservations.index');
+    Route::get('/reservations/{affectation}/edit', [AdminAffectationController::class, 'edit'])->name('admin.reservations.edit');
+Route::put('/reservations/{affectation}', [AdminAffectationController::class, 'update'])->name('admin.reservations.update');
+
+Route::get('/facturation', [AdminAffectationController::class, 'facturation'])->name('admin.facturation.index');
 });
 
 require __DIR__.'/auth.php';

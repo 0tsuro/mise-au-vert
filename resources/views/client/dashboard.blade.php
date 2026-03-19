@@ -52,7 +52,7 @@
                         Consultez les séjours passés ou à venir de vos animaux.
                     </p>
 
-                    <a href="#" class="inline-flex items-center gap-2 text-[0.82rem] text-sage hover:text-sage-deep transition-colors">
+                    <a href="{{ route('client.reservations.index') }}" class="inline-flex items-center gap-2 text-[0.82rem] text-sage hover:text-sage-deep transition-colors">
                         Accéder
                         <span>→</span>
                     </a>
@@ -71,7 +71,7 @@
                         Modifiez vos informations personnelles.
                     </p>
 
-                    <a href="{{ route('profile.edit') }}" class="inline-flex items-center gap-2 text-[0.82rem] text-sage hover:text-sage-deep transition-colors">
+                    <a href="{{ route('client.profil') }}" class="inline-flex items-center gap-2 text-[0.82rem] text-sage hover:text-sage-deep transition-colors">
                         Accéder
                         <span>→</span>
                     </a>

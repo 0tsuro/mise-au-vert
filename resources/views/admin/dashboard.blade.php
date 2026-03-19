@@ -80,6 +80,44 @@
                         <span>→</span>
                     </a>
                 </article>
+                <article class="formule-card bg-white rounded-[1.75rem] p-7 border border-black/[0.05] shadow-sm">
+    <span class="block text-[0.62rem] uppercase tracking-[0.18em] text-sage mb-3">
+        Réservations
+    </span>
+
+    <h2 class="font-serif-custom text-2xl font-light text-ink mb-4">
+        Voir les séjours
+    </h2>
+
+    <p class="text-[0.9rem] text-bark leading-relaxed mb-6">
+        Consultez les animaux attendus, présents ou déjà partis dans votre pension.
+    </p>
+
+    <a href="{{ route('admin.reservations.index') }}"
+       class="inline-flex items-center gap-2 text-[0.82rem] text-sage hover:text-sage-deep transition-colors">
+        Accéder aux séjours
+        <span>→</span>
+    </a>
+</article>
+<article class="formule-card bg-white rounded-[1.75rem] p-7 border border-black/[0.05] shadow-sm">
+    <span class="block text-[0.62rem] uppercase tracking-[0.18em] text-sage mb-3">
+        Facturation
+    </span>
+
+    <h2 class="font-serif-custom text-2xl font-light text-ink mb-4">
+        Séjours à facturer
+    </h2>
+
+    <p class="text-[0.9rem] text-bark leading-relaxed mb-6">
+        Consultez les séjours terminés non réglés et leur montant estimé.
+    </p>
+
+    <a href="{{ route('admin.facturation.index') }}"
+       class="inline-flex items-center gap-2 text-[0.82rem] text-sage hover:text-sage-deep transition-colors">
+        Accéder à la facturation
+        <span>→</span>
+    </a>
+</article>
             </div>
         </div>
     </section>

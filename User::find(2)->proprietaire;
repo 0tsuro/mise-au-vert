@@ -1,0 +1,25 @@
+[90m= [39m[34;4mIlluminate\Database\Eloquent\Collection[39;24m {#877
+    [34mall[39m: [
+      [34;4mApp\Models\Proprietaire[39;24m {#5844
+        [34mid[39m: [35m1[39m,
+        [34mnom[39m: "[32mDurand[39m",
+        [34mprenom[39m: "[32mPaul[39m",
+        [34madresse[39m: "[32m1 rue de Lille[39m",
+        [34mtelephone[39m: "[32m0600000001[39m",
+        [34mcreated_at[39m: "[32m2026-03-11 08:05:17[39m",
+        [34mupdated_at[39m: "[32m2026-03-12 10:54:38[39m",
+        [34muser_id[39m: [35m2[39m,
+      },
+      [34;4mApp\Models\Proprietaire[39;24m {#5843
+        [34mid[39m: [35m2[39m,
+        [34mnom[39m: "[32mPetit[39m",
+        [34mprenom[39m: "[32mClaire[39m",
+        [34madresse[39m: "[32m2 rue de Paris[39m",
+        [34mtelephone[39m: "[32m0600000002[39m",
+        [34mcreated_at[39m: "[32m2026-03-11 08:05:17[39m",
+        [34mupdated_at[39m: "[32m2026-03-11 08:05:17[39m",
+        [34muser_id[39m: [36mnull[39m,
+      },
+    ],
+  }
+

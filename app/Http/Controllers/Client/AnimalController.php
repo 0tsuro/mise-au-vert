@@ -71,4 +71,34 @@ class AnimalController extends Controller
         return redirect()->route('client.animaux.index')
             ->with('success', 'Animal supprimé avec succès.');
     }
+
+    public function profil()
+{
+    $proprietaire = auth()->user()->proprietaire;
+
+    return view('client.profil', compact('proprietaire'));
 }
+
+public function profilUpdate(Request $request)
+{
+    $validated = $request->validate([
+        'nom' => ['required'],
+        'prenom' => ['required'],
+        'telephone' => ['required'],
+        'adresse' => ['required'],
+    ]);
+
+    $user = auth()->user();
+
+    if ($user->proprietaire) {
+        $user->proprietaire->update($validated);
+    } else {
+        $validated['user_id'] = $user->id;
+        \App\Models\Proprietaire::create($validated);
+    }
+
+    return redirect()->route('client.profil')
+        ->with('success', 'Profil mis à jour.');
+}
+}
+
